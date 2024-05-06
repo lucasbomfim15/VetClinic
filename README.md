@@ -48,7 +48,7 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina 
 
 ## Configuração do Banco de Dados
 
-- Este projeto utiliza o Sequelize como ORM (Object-Relational Mapping) e MySQL como banco de dados. Certifique-se de configurar as credenciais de banco de dados no arquivo `db/conn.js`.
+- Este projeto utiliza o Sequelize como ORM (Object-Relational Mapping) e SQLite como banco de dados. Certifique-se de configurar as credenciais de banco de dados no arquivo `db/conn.js`.
 
 ## Execução
 
