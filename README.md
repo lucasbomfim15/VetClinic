@@ -23,7 +23,7 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina 
 1. **Clone este repositório:**
 
     ```bash
-    git clone https://github.com/gleidistonaraujo18/CRUD.git
+    git clone https://github.com/lucasbomfim15/VetClinic.git
     ```
 
 2. **Acesse o diretório do projeto:**
