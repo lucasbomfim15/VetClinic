@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require('./db/connection')
+const bodyParser = require("body-parser");
 
 const PORT = 3000;
 
@@ -9,6 +10,9 @@ app.use(express.json())
 app.listen(PORT, () =>{
     console.log("API rodando")
 })
+
+// body parser
+app.use(bodyParser.urlencoded({extended: false}))
 
 
 //conexão com o banco de dados:
@@ -24,17 +28,12 @@ db.authenticate().then(() =>{
 //rotas:
 
 
-app.get('/teste', (req, res) =>{
+app.get('/', (req, res) =>{
     res.send("ola mundo")
 })
 
-app.post('/tutor', (req, res) =>{
-   console.log(req.body)
-
-   res.json({
-    "statuscCode": 200
-   })
 
 
-})
+//tutores routes
 
+app.use('/tutors', require('./routes/tutors'));
