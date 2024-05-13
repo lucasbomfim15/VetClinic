@@ -1,10 +1,13 @@
 const Sequelize = require('sequelize');
 const db = require("../db/connection");
+const Pet = require('./Pet');
 const sequelize = require('../db/connection');
+
+
 
 const Tutor = db.define('tutors', {
     name: {
-        type: Sequelize.INTEGER
+        type: Sequelize.TEXT
     },
     phone: {
         type: Sequelize.TEXT
@@ -20,5 +23,11 @@ const Tutor = db.define('tutors', {
     }
 
 });
+
+
+Tutor.associate = models =>{
+Tutor.hasMany(models.Pet, {as: 'pets'});} 
+
+
 
 module.exports = Tutor

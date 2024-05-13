@@ -2,12 +2,20 @@ const express = require("express");
 const app = express();
 const db = require('./db/connection')
 const bodyParser = require("body-parser");
+require('dotenv').config()
 
-const PORT = 3000;
+
+const Pet = require('./models/Pet')
+const Tutor = require("./models/Tutor")
+
+Pet.associate({Tutor});Tutor.associate({Pet});
+
+
+
 
 app.use(express.json())
 
-app.listen(PORT, () =>{
+app.listen(process.env.PORT, () =>{
     console.log("API rodando")
 })
 
@@ -16,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 
 //conexão com o banco de dados:
+//pets.tutorId not exist
 
 db.authenticate().then(() =>{
     console.log("CONECTOU COM O BANCO DE DADOS")
@@ -37,3 +46,8 @@ app.get('/', (req, res) =>{
 //tutores routes
 
 app.use('/tutors', require('./routes/tutors'));
+
+
+//pets routes
+
+app.use('/pets', require('./routes/pets'));
